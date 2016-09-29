@@ -23,14 +23,6 @@ export class AppComponent implements OnInit {
     this.numbers = this.numbersService.getNumbers();
   }
 
-  isPrime(n: number): boolean {
-    return this.numbersService.isPrime(n);
-  }
-
-  isMultipleOfThree(n: number): boolean {
-    return this.numbersService.isMultipleOfThree(n);
-  }
-
   colorNumber(n: number): string {
     if (this.numbersService.isPrime(n)) {
       return "red";

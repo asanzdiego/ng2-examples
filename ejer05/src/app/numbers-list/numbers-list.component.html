@@ -1,0 +1,8 @@
+<h1>{{ title }}</h1>
+
+<ul>
+  <li *ngFor="let n of numbers">
+    <!--span [style.color]="colorNumber(n)">{{ n }}</span-->
+    <span [ngStyle]="{color: colorNumber(n)}">{{ n }}</span>
+  </li>
+</ul>

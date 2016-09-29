@@ -1,0 +1,6 @@
+<button type="button" class="btn btn-default" (click)="toggleLegend()">Mostrar leyenda</button>
+<ul *ngIf="showLegend">
+  <li>Números primos en <span class="bold" style="color: red">rojo</span></li>
+  <li>Múltiplos de 3 en <span class="bold" style="color: green">verde</span></li>
+  <li>Resto en <span class="bold" style="color: blue">azul</span></li>
+</ul>
