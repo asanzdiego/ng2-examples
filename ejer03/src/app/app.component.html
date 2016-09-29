@@ -1,3 +1,28 @@
-<h1>
-  {{title}}
-</h1>
+<style>
+  .bold {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+</style>
+
+
+<div class="container">
+
+  <h1>Identificador de números</h1>
+
+  <ul>
+    <li *ngFor="let n of numbers">
+      <!--span [style.color]="colorNumber(n)">{{ n }}</span--> 
+      <span [ngStyle]="{color: colorNumber(n)}">{{ n }}</span> 
+    </li>
+  </ul>
+
+
+  <button type="button" class="btn btn-default" (click)="toggleLegend()">Mostrar leyenda</button>
+  <ul *ngIf="showLegend">
+    <li>Números primos en <span class="bold" style="color: red">rojo</span></li>
+    <li>Múltiplos de 3 en <span class="bold" style="color: green">verde</span></li>
+    <li>Resto en <span class="bold" style="color: blue">azul</span></li>
+  </ul>
+
+</div>

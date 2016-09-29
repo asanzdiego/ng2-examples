@@ -9,6 +9,6 @@ describe('ejer03 App', function() {
 
   it('should display message saying app works', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('¡Hola, alumnos!');
+    expect(page.getParagraphText()).toEqual('app works!');
   });
 });

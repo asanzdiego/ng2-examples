@@ -1,6 +1,6 @@
 {
   "project": {
-    "version": "1.0.0-beta.15",
+    "version": "1.0.0-beta.11-webpack.8",
     "name": "ejer03"
   },
   "apps": [
@@ -15,13 +15,14 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
-        "styles.css"
+        "styles.css",
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css"
       ],
       "scripts": [],
       "environments": {
         "source": "environments/environment.ts",
-        "dev": "environments/environment.ts",
-        "prod": "environments/environment.prod.ts"
+        "prod": "environments/environment.prod.ts",
+        "dev": "environments/environment.dev.ts"
       }
     }
   ],
@@ -39,6 +40,7 @@
   },
   "defaults": {
     "styleExt": "css",
-    "prefixInterfaces": false
+    "prefixInterfaces": false,
+    "lazyRoutePrefix": "+"
   }
 }
