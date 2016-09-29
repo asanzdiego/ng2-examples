@@ -39,3 +39,7 @@ jspm_packages
 dist
 
 .vscode
+
+# The content of playground folder except the README
+playground
+!playground/README.md
