@@ -2,7 +2,10 @@
 
 <ul>
   <li *ngFor="let n of numbers">
-    <!--span [style.color]="colorNumber(n)">{{ n }}</span-->
-    <span [ngStyle]="{color: colorNumber(n)}">{{ n }}</span>
+    <span [ngStyle]="{color: colorNumber(n)}">
+      <app-number [n]="n" (show)="showExtra($event)"></app-number>
+      <span *ngIf="showInfo"> {{ typeOfNumber(n) }}</span>
+    </span>
+    
   </li>
 </ul>

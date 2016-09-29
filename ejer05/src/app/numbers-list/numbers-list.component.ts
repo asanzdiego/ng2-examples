@@ -9,6 +9,7 @@ import { NumbersService } from './../numbers.service';
 })
 export class NumbersListComponent implements OnInit {
 
+  private showInfo: boolean = false;
   private numbers: Array<number>;
   @Input() private title: string;
 
@@ -16,6 +17,16 @@ export class NumbersListComponent implements OnInit {
 
   ngOnInit() {
     this.numbers = this.numbersService.getNumbers();
+  }
+
+  typeOfNumber(n: number): string {
+    if (this.numbersService.isPrime(n)) {
+      return "Primo";
+    } else if (this.numbersService.isMultipleOfThree(n)){
+      return "Múltiplo de tres";
+    } else {
+      return "Otro";
+    }
   }
 
   colorNumber(n: number): string {
@@ -26,6 +37,10 @@ export class NumbersListComponent implements OnInit {
     } else {
       return "blue";
     }
+  }
+
+  showExtra(ev: boolean) {
+    this.showInfo = ev;
   }
 
 }
