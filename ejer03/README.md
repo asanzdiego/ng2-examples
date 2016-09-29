@@ -2,6 +2,13 @@
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.11-webpack.8.
 
+# Important things
+- Global styles added in angular-cli.json (Bootstrap 3)
+- Styles defined at component level with stylesUrl (commented)
+- Styles defined at component level with styles
+- Inline styles in the template
+- Use of ngIf, ngFor, data binding basics
+
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
