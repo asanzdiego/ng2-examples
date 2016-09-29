@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ButtonsPanelComponent implements OnInit {
 
+  showLegend: boolean = false;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  toggleLegend() {
+    this.showLegend = !this.showLegend;
   }
 
 }
