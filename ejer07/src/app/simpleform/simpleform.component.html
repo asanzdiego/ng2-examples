@@ -3,11 +3,6 @@
   <form #form="ngForm" (ngSubmit)="submitForm(form.value)">
     <div class="form-group">
       <label>First Name:</label>
-
-      <!-- Declarar la variable #firstName="ngModel" es lo que hace que sea referenciable en otras partes. 
-          Si tuviéramos #firstName solo, la variable firstName en otro lado no tendría los campos valid, pristine, etc. 
-          Si no tuviéramos necesidad de vincular el formulario con ningún modelo, bastaría con que pusiéramos ngModel a secas,
-          y aun existiría form.firstName, por si lo queremos validar en el componente. -->
       <input type="text" class="form-control" placeholder="John" #firstName="ngModel" name="firstName" [(ngModel)]="user.firstName" required>
       <div [hidden]="firstName.valid || firstName.pristine" class="alert alert-danger">First name is required</div>
     </div>
