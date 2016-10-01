@@ -1,14 +1,13 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable} from 'rxjs/Rx';
+import { GOOGLE_BOOKS_SEARCH_URL } from './app.tokens';
+
 
 @Injectable()
 export class BooksService {
 
-  // Improvement: inject this with OpaqueToken
-  private baseurl: string = 'https://www.googleapis.com/books/v1/volumes?q=intitle:';
-
-  constructor(private http: Http) { }
+  constructor(private http: Http, @Inject(GOOGLE_BOOKS_SEARCH_URL) private baseurl: string) { }
 
   getBooks(title: string) {
 
