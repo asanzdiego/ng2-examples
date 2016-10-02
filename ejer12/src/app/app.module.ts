@@ -14,13 +14,15 @@ import { AppComponent } from './app.component';
 import { BannerComponent } from './banner/banner.component';
 import { RandomQuoteComponent } from './random-quote/random-quote.component';
 import { QuoteService } from './quote.service';
+import { ProductFilterPipe } from './product-filter.pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     BannerComponent,
-    RandomQuoteComponent
+    RandomQuoteComponent,
+    ProductFilterPipe
   ],
   imports: [
     BrowserModule,
