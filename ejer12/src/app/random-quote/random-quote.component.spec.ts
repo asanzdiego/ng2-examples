@@ -1,5 +1,5 @@
 /// <reference path="../../../node_modules/@types/jasmine/index.d.ts" />
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, inject } from '@angular/core/testing';
 import { By }              from '@angular/platform-browser';
 import { DebugElement }    from '@angular/core';
 import { RandomQuoteComponent } from './random-quote.component';
@@ -7,6 +7,7 @@ import { QuoteService } from './../quote.service';
 
 describe('Component: RandomQuote', () => {
 
+  let spy: jasmine.Spy;  
   let comp: RandomQuoteComponent;
   let fixture: ComponentFixture<RandomQuoteComponent>;
   let componentQuoteService: QuoteService; // the actually injected service
@@ -39,7 +40,7 @@ describe('Component: RandomQuote', () => {
 
     // UserService actually injected into the component
     componentQuoteService = fixture.debugElement.injector.get(QuoteService);;
-    
+
     // UserService from the root injector. 
     quoteService = TestBed.get(QuoteService);
 
@@ -54,6 +55,28 @@ describe('Component: RandomQuote', () => {
     expect(line).toEqual("In theory, there is no difference between theory and practice. But, in practice, there is.");
   });
 
+  it('should return the expected line using a spy', () => {
+    spy = spyOn(quoteService, 'getRandomQuote').and.returnValue({
+        "line": "In theory, there is no difference between theory and practice. But, in practice, there is.",
+        "author": "Jan L. A. van de Snepscheut"
+      });
+
+    fixture.detectChanges();
+
+    expect(spy.calls.mostRecent().returnValue.line).toEqual("In theory, there is no difference between theory and practice. But, in practice, there is.");
+  });
+
+  it('should return the expected author using a spy', () => {
+    spy = spyOn(quoteService, 'getRandomQuote').and.returnValue({
+        "line": "In theory, there is no difference between theory and practice. But, in practice, there is.",
+        "author": "Jan L. A. van de Snepscheut"
+      });
+
+    fixture.detectChanges();
+
+    expect(spy.calls.mostRecent().returnValue.author).toEqual("Jan L. A. van de Snepscheut");
+  });  
+
   it('should return the expected author', () => {
     fixture.detectChanges();
     const author = de.nativeElement.textContent;
@@ -61,8 +84,12 @@ describe('Component: RandomQuote', () => {
     expect(author).toContain("Jan L. A. van de Snepscheut");
   });
 
+  it('should inject the component\'s QuoteService instance',
+    inject([QuoteService], (service: QuoteService) => {
+    expect(service).toBe(componentQuoteService);
+  }));
+
   it('TestBed and Component QuoteService should be the same', () => {
     expect(quoteService === componentQuoteService).toBe(true);
   });
-
 });
