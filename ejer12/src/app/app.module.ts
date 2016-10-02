@@ -15,6 +15,7 @@ import { BannerComponent } from './banner/banner.component';
 import { RandomQuoteComponent } from './random-quote/random-quote.component';
 import { QuoteService } from './quote.service';
 import { ProductFilterPipe } from './product-filter.pipe';
+import { ProductManagerComponent } from './product-manager/product-manager.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ProductFilterPipe } from './product-filter.pipe';
     AppComponent,
     BannerComponent,
     RandomQuoteComponent,
-    ProductFilterPipe
+    ProductFilterPipe,
+    ProductManagerComponent
   ],
   imports: [
     BrowserModule,
