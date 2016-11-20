@@ -7,6 +7,12 @@ var Student = (function () {
     }
     return Student;
 }());
+var Foo = (function () {
+    function Foo() {
+    }
+    return Foo;
+}());
+;
 function greeter(person) {
     return "Hello, " + person.firstName + " " + person.lastName;
 }

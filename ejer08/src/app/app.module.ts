@@ -1,15 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, OpaqueToken } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { LessnumbersService } from './lessnumbers.service';
+import { NumbersService } from './numbers.service';
+import { LoggerService } from './logger.service';
 import { AppComponent } from './app.component';
 
-import { NumbersService } from './numbers.service';
-import { LessNumbersService } from './less-numbers.service';
-import { LogDebugger } from './logger.service';
-
-export const TITLE_APP = new OpaqueToken('title');
 
 @NgModule({
   declarations: [
@@ -20,25 +18,19 @@ export const TITLE_APP = new OpaqueToken('title');
     FormsModule,
     HttpModule
   ],
-
-  // Component will use NumbersService, but LessNumbersService will be injected instead
   providers: [
-    LessNumbersService, 
+    LessnumbersService,
     {
       provide: NumbersService,
-      useExisting: LessNumbersService
+      useExisting: LessnumbersService
     },
     {
-      provide: LogDebugger,
+      provide: LoggerService,
       useFactory: () => {
-        return new LogDebugger(true);
+        return new LoggerService(true);
       }
     },
-    {
-      provide: TITLE_APP,
-      useValue: "Lista de numeracos"
-    }
-    ],
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

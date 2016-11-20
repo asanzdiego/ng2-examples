@@ -10,5 +10,4 @@ Slides (in Spanish) [here](https://github.com/jorgeas80/curso-ng2)
 
 # TODO
 
-* Fix ejer08 (throws an error [like this one](https://github.com/angular/angular-cli/issues/1831)).
 * Routing exercises

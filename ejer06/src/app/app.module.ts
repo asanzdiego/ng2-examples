@@ -4,22 +4,22 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { ClickMeComponent } from './click-me/click-me.component';
-import { ClickMe2Component } from './click-me2/click-me2.component';
+import { ClickmeComponent } from './clickme/clickme.component';
+import { Clickme2Component } from './clickme2/clickme2.component';
 import { KeyupComponent } from './keyup/keyup.component';
-import { LittleTourComponent } from './little-tour/little-tour.component';
-import { LoopBackComponent } from './loop-back/loop-back.component';
-import { Keyup2Component } from './keyup2/keyup2.component';
+import { KeyuprefvarComponent } from './keyuprefvar/keyuprefvar.component';
+import { KeyupenterComponent } from './keyupenter/keyupenter.component';
+import { AddheroesComponent } from './addheroes/addheroes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ClickMeComponent,
-    ClickMe2Component,
+    ClickmeComponent,
+    Clickme2Component,
     KeyupComponent,
-    LittleTourComponent,
-    LoopBackComponent,
-    Keyup2Component
+    KeyuprefvarComponent,
+    KeyupenterComponent,
+    AddheroesComponent
   ],
   imports: [
     BrowserModule,

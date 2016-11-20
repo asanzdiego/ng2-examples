@@ -1,26 +1,26 @@
 import { Component, OnInit, Inject, OpaqueToken } from '@angular/core';
 import { NumbersService } from './numbers.service';
-import { LogDebugger } from './logger.service';
-import { TITLE_APP } from './app.module';
+import { LoggerService } from './logger.service';
 
+
+const TITLE_APP = new OpaqueToken('title');
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styles: [`
-	.red { color: red; }
-	.blue { color: blue; }
-  .green { color: yellow; }   
-  `],
-  /*styleUrls: ['./app.component.css']*/
+  styleUrls: ['./app.component.css'],
+  providers: [
+    {
+      provide: TITLE_APP,
+      useValue: 'Lista de numeracos'
+    }
+  ]
 })
 export class AppComponent implements OnInit {
+  numbers: number[];
+  showLegend: boolean;
 
-  numbers: Array<number>;
-  showLegend: boolean = false;
-
-  // Need to call @Inject() for TITLE_APP, even when it's included in the providers array
-  constructor(private numbersService: NumbersService, private logger: LogDebugger, @Inject(TITLE_APP) private title: string) {}
+  constructor(private numbersService: NumbersService, private logger: LoggerService, @Inject(TITLE_APP) private title: string) {}
 
   ngOnInit() {
     this.numbers = this.numbersService.getNumbers();
@@ -28,19 +28,19 @@ export class AppComponent implements OnInit {
 
   colorNumber(n: number): string {
     if (this.numbersService.isPrime(n)) {
-      this.logger.debug("Rojo");
-      return "red";
-    } else if (this.numbersService.isMultipleOfThree(n)){
-      this.logger.debug("Verde")
-      return "green";
+      this.logger.debug('Verde');
+      return 'green';
+    } else if (this.numbersService.isMultipleOfThree(n)) {
+      this.logger.debug('Rojo');
+      return 'red';
     } else {
-      this.logger.debug("Azul")
-      return "blue";
+      this.logger.debug('negro');
+      return 'black';
     }
   }
 
   toggleLegend() {
     this.showLegend = !this.showLegend;
-    this.logger.debug("Leyenda cambiada");
   }
+
 }

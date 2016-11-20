@@ -3,24 +3,23 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { NumbersService } from './numbers.service';
 import { AppComponent } from './app.component';
-import { NumbersListComponent } from './numbers-list/numbers-list.component';
-import { ButtonsPanelComponent } from './buttons-panel/buttons-panel.component';
-import { NumberComponent } from './number/number.component';
+import { NumberslistComponent } from './numberslist/numberslist.component';
+import { LegendComponent } from './legend/legend.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NumbersListComponent,
-    ButtonsPanelComponent,
-    NumberComponent
+    NumberslistComponent,
+    LegendComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [NumbersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from './user';
 
 @Component({
-  selector: 'simple-form',
+  selector: 'app-simpleform',
   templateUrl: './simpleform.component.html',
   styleUrls: ['./simpleform.component.css']
 })

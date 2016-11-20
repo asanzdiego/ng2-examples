@@ -1,5 +1,8 @@
 <div class="container">
-  <app-numbers-list [title] = "title"></app-numbers-list>
+
+  <!-- A la derecha del binding, si queremos un literal, necesitamos que vaya entre comillas. Si ponemos solo Lista de números,
+buscara una variable que se llame así en nuestro propio controlador -->
+  <app-numberslist [title]="'Lista de números'" (extra)="showExtraEvent($event)"></app-numberslist>
   
-  <app-buttons-panel (show)="showExtraInfo($event)"></app-buttons-panel>
+  <app-legend *ngIf="show" [title]="'Leyenda'"></app-legend>
 </div>
