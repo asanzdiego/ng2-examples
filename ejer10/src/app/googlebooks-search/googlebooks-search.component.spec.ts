@@ -1,11 +1,28 @@
 /* tslint:disable:no-unused-variable */
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
+import { DebugElement } from '@angular/core';
 
-import { TestBed, async } from '@angular/core/testing';
 import { GooglebooksSearchComponent } from './googlebooks-search.component';
 
-describe('Component: GooglebooksSearch', () => {
-  it('should create an instance', () => {
-    let component = new GooglebooksSearchComponent();
+describe('GooglebooksSearchComponent', () => {
+  let component: GooglebooksSearchComponent;
+  let fixture: ComponentFixture<GooglebooksSearchComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ GooglebooksSearchComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(GooglebooksSearchComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

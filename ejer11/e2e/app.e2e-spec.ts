@@ -1,10 +1,10 @@
-import { Ejer11Page } from './app.po';
+import { Ejer03Page } from './app.po';
 
-describe('ejer11 App', function() {
-  let page: Ejer11Page;
+describe('ejer03 App', function() {
+  let page: Ejer03Page;
 
   beforeEach(() => {
-    page = new Ejer11Page();
+    page = new Ejer03Page();
   });
 
   it('should display message saying app works', () => {

@@ -3,7 +3,6 @@ import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import { WikipediaService } from '../wikipedia.service';
 
-
 @Component({
   selector: 'app-wikipedia-smart-search',
   templateUrl: './wikipedia-smart-search.component.html',
@@ -11,12 +10,13 @@ import { WikipediaService } from '../wikipedia.service';
   providers: [WikipediaService]
 })
 export class WikipediaSmartSearchComponent implements OnInit {
+
   // Subject here acts as a bridge between the observable events (keyups) and subscriber (the component)
   // Check http://reactivex.io/documentation/subject.html
   private searchTermStream = new Subject<string>();
   private items: Observable<string[]>;
 
-  constructor (private wikipediaService: WikipediaService) { }
+  constructor(private wikipediaService: WikipediaService) { }
 
   ngOnInit() {
     this.items = this.searchTermStream

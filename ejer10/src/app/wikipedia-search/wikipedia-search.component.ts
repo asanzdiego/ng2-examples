@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { WikipediaService } from '../wikipedia.service';
 
-
 @Component({
   selector: 'app-wikipedia-search',
   templateUrl: './wikipedia-search.component.html',
@@ -10,8 +9,7 @@ import { WikipediaService } from '../wikipedia.service';
   providers: [WikipediaService]
 })
 export class WikipediaSearchComponent implements OnInit {
-
-  items: Observable<string[]>;
+  private items: Observable<string[]>;
 
   constructor(private wikipediaService: WikipediaService) { }
 
@@ -21,6 +19,7 @@ export class WikipediaSearchComponent implements OnInit {
   search(term: string) {
     this.items = this.wikipediaService.search(term);
   }
+
 }
 
 /*

@@ -1,14 +1,15 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
 import { Observable} from 'rxjs/Rx';
 import { Product } from './product';
+import { PRODUCTS_URL } from './app.tokens';
+
 
 @Injectable()
 export class ProductsService {
-  private productsUrl = 'app/products';  // URL to web API
 
-  constructor(private http: Http) { }
+  constructor(private http: Http, @Inject(PRODUCTS_URL) private productsUrl: string) { }
 
   getProducts() {
     return this.http.get(this.productsUrl)
@@ -29,7 +30,8 @@ export class ProductsService {
 
   private extractData(res: Response) {
     let body = res.json();
-    return body.data || { };
+    //return body.data || { }; //angular-in-memory-web-api 
+    return body || { };  // json-server
   }
 
   private handleError (error: any) {
@@ -40,5 +42,4 @@ export class ProductsService {
     console.error(errMsg); // log to console instead
     return Observable.throw(errMsg);
   }
-
 }

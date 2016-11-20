@@ -1,11 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from './products.service';
 import { Product } from './product';
+import { PRODUCTS_URL } from './app.tokens';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [
+    {
+      provide: PRODUCTS_URL,
+      useValue: 'http://localhost:3000/products'
+      //useValue: 'app/products'
+    },
+    ProductsService
+  ]
 })
 export class AppComponent implements OnInit {
   private products: Array<Product>;

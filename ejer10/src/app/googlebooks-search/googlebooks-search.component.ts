@@ -1,17 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { BooksService } from '../books.service';
-//import { BooksService } from './books-promise.service';
+import { GOOGLE_BOOKS_SEARCH_URL } from '../app.tokens';
+
+
 
 @Component({
   selector: 'app-googlebooks-search',
   templateUrl: './googlebooks-search.component.html',
-  styleUrls: ['./googlebooks-search.component.css']
+  styleUrls: ['./googlebooks-search.component.css'],
+  providers: [
+    {
+      provide: GOOGLE_BOOKS_SEARCH_URL,
+      useValue: 'https://www.googleapis.com/books/v1/volumes?q=intitle:'
+    },
+    BooksService]
 })
 export class GooglebooksSearchComponent implements OnInit {
-  private books: string[];
 
-  // Needed to use promises instead of observables
-  //mode = 'Promise';
+  private books: string[];
 
   constructor(private service: BooksService) { }
 

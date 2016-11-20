@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Jsonp, URLSearchParams } from '@angular/http';
+import 'rxjs/add/operator/map';
+
 
 @Injectable()
 export class WikipediaService {
-  constructor(private jsonp: Jsonp) {}
 
-  search (term: string) {
+  constructor(private jsonp: Jsonp) { }
 
+  search(term: string) {
     let wikiUrl = 'http://en.wikipedia.org/w/api.php';
 
     let params = new URLSearchParams();
@@ -17,8 +19,8 @@ export class WikipediaService {
 
     // TODO: Add error handling
     return this.jsonp
-               .get(wikiUrl, { search: params })
-               .map(response => <string[]> response.json()[1]);
+      .get(wikiUrl, { search: params })
+      .map(response => <string[]>response.json()[1]);
   }
 }
 
@@ -27,3 +29,4 @@ Copyright 2016 Google Inc. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
 can be found in the LICENSE file at http://angular.io/license
 */
+
